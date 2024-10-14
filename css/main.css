@@ -202,9 +202,9 @@ li {
   color: white;
 }
 
-.collapsed {
+/* .collapsed {
   display: none;
-}
+} */
 
 .button-cancel {
   background-color: grey;
