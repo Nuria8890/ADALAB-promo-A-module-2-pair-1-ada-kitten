@@ -51,3 +51,25 @@ const cielo = `<li class="card">
           </li>`;
 
 ulList.innerHTML = anastasio + fiona + cielo;
+
+/*
+    1. Cuando hacemos click en + se tiene que quitar la clase collapsed
+    2. Cuando hacemos click en cancelar tiene que aparecer de nuevo la clase collapsed
+*/
+
+const buttonPlus = document.querySelector ('.js-button-plus');
+const buttonCancel = document.querySelector ('.js-button-cancel');
+const newForm = document.querySelector ('.js-new-form');
+
+
+buttonPlus.addEventListener('click', ()=> {
+  //newForm.classList.toggle('collapsed');
+  newForm.classList.remove('collapsed');
+}) 
+
+buttonCancel.addEventListener('click', ()=> {
+  //newForm.classList.toggle('collapsed');
+  newForm.classList.add('collapsed');
+})
+
+
