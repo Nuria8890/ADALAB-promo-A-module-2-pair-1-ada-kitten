@@ -57,7 +57,7 @@ ulList.innerHTML = anastasio + fiona + cielo;
     2. Cuando hacemos click en cancelar tiene que aparecer de nuevo la clase collapsed
 */
 
-const buttonPlus = document.querySelector ('.js-button-plus');
+const buttonPlus = document.querySelector ('.js-btn-add');
 const buttonCancel = document.querySelector ('.js-button-cancel');
 const newForm = document.querySelector ('.js-new-form');
 
