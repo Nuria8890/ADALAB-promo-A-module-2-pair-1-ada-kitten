@@ -26,7 +26,7 @@
       <section class="logo">
         <img class="img" src="./img/favicon.png" alt="Logo de Adacats" />
         <h1>AdaKitten</h1>
-        <nav class="menu-nav collapsed">
+        <nav class="menu-nav">
           <ul class="menu">
             <li class="item">
               <span class="fas fa-plus-circle js-btn-add"> </span>
@@ -37,7 +37,7 @@
     </header>
 
     <main>
-      <section class="new-form js-new-form">
+      <section class="new-form js-new-form collapsed">
         <h2 class="title">¿Agregamos un nuevo gatito a Adalab?</h2>
         <form class="form">
           <input
@@ -63,7 +63,7 @@
       <section class="search">
         <h2 class="title">Filtrar / Buscar</h2>
         <form class="form">
-          <input class="input" type="text" placeholder="Descripción" />
+          <input class="input js_in_search_desc" type="text" placeholder="Descripción" />
           <input
             class="input"
             type="select"
@@ -72,7 +72,7 @@
             id="raza"
           />
 
-          <button class="button">Buscar</button>
+          <button class="button js_button-search">Buscar</button>
         </form>
       </section>
 
