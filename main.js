@@ -6,9 +6,10 @@ const anastasioDescription = 'Porte elegante, su patrón de color tan caracterí
 const anastasioImage = 'https://dev.adalab.es/gato-siames.webp';
 const anastasioName = 'Anastacio';
 const anastasioRace = 'Siamés';
+const anastasioLi = '<li class="card js-anastasio-li">';
 
 
-const anastasio = `<li class="card">
+const anastasio = `${anastasioLi}
             <article>
               <img
                 class="card_img"
@@ -27,8 +28,9 @@ const fionaDescription = 'Produce fascinación y curiosidad. Exótico, raro, bel
 const fionaImage = 'https://dev.adalab.es/sphynx-gato.webp';
 const fionaName = 'Fiona';
 const fionaRace = 'Sphynx';
+const fionaLi = '<li class=card js-fiona-li>';
 
-const fiona = `<li class="card">
+const fiona = `${fionaLi}
             <img
               class="card_img"
               src="${fionaImage}"
@@ -45,8 +47,9 @@ const cieloDescription = 'Tienen la cabeza cuadrada y los ojos simétricos, por 
 const cieloImage = 'https://dev.adalab.es/maine-coon-cat.webp';
 const cieloName = 'Cielo';
 const cieloRace = 'Maine Coon';
+const cieloLi = '<li class="card js-cielo-li">';
 
-const cielo = `<li class="card">
+const cielo = `${cieloLi}
             <img
               class="card_img"
               src="${cieloImage}"
@@ -96,18 +99,22 @@ buttonSearch.addEventListener('click', (event) => {
   event.preventDefault();
   console.log('click');
 
+  const anastasioLi = document.querySelector('.js-anastasio-li');
+  const fionaLi = document.querySelector('js-fiona-li');
+  const cieloLi =  document.querySelector('js-cielo-li');
+
   const descriptionValue = descripton.value;
+ 
+  if (anastasioDescription.includes(descriptionValue)) {
+    
+    fionaLi.classList.add('collapsed');
+    cieloLi.classList.add('collapsed');
 
-
-  if (anastasioContent.includes(descriptionValue)) {
-    fiona.classList.add('collapsed');
-    cielo.classList.add('collapsed');
-    console.log('Soy anastasio');
   }
-  if (fiona.includes(descriptionValue)) {
+  if (fionaDescription.includes(descriptionValue)) {
     console.log('Soy fiona');
   }
-  if (cielo.includes(descriptionValue)) {
+  if (cieloDescription.includes(descriptionValue)) {
     console.log('Soy cielo');
   }
 })
