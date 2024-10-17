@@ -6,10 +6,9 @@ const anastasioDescription = 'Porte elegante, su patrón de color tan caracterí
 const anastasioImage = 'https://dev.adalab.es/gato-siames.webp';
 const anastasioName = 'Anastacio';
 const anastasioRace = 'Siamés';
-const anastasioLi = '<li class="card js-anastasio-li">';
 
 
-const anastasio = `${anastasioLi}
+const anastasio = `<li class="card js-anastasio-li">
             <article>
               <img
                 class="card_img"
@@ -28,9 +27,8 @@ const fionaDescription = 'Produce fascinación y curiosidad. Exótico, raro, bel
 const fionaImage = 'https://dev.adalab.es/sphynx-gato.webp';
 const fionaName = 'Fiona';
 const fionaRace = 'Sphynx';
-const fionaLi = '<li class=card js-fiona-li>';
 
-const fiona = `${fionaLi}
+const fiona = `<li class=card js-fiona-li>
             <img
               class="card_img"
               src="${fionaImage}"
@@ -47,9 +45,8 @@ const cieloDescription = 'Tienen la cabeza cuadrada y los ojos simétricos, por 
 const cieloImage = 'https://dev.adalab.es/maine-coon-cat.webp';
 const cieloName = 'Cielo';
 const cieloRace = 'Maine Coon';
-const cieloLi = '<li class="card js-cielo-li">';
 
-const cielo = `${cieloLi}
+const cielo = `<li class="card js-cielo-li">
             <img
               class="card_img"
               src="${cieloImage}"
@@ -98,15 +95,15 @@ const descripton = document.querySelector('.js_in_search_desc');
 buttonSearch.addEventListener('click', (event) => {
   event.preventDefault();
   console.log('click');
-
   const anastasioLi = document.querySelector('.js-anastasio-li');
-  const fionaLi = document.querySelector('js-fiona-li');
-  const cieloLi =  document.querySelector('js-cielo-li');
+  const fionaLi = document.querySelector('.js-fiona-lii');
+  const cieloLi =  document.querySelector('.js-cielo-li');
 
   const descriptionValue = descripton.value;
- 
+
   if (anastasioDescription.includes(descriptionValue)) {
-    
+    console.log('Soy Anastasio');
+    console.log(fionaLi);
     fionaLi.classList.add('collapsed');
     cieloLi.classList.add('collapsed');
 
