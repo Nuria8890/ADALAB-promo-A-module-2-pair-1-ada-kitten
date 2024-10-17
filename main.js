@@ -28,7 +28,7 @@ const fionaDescription = 'Produce fascinación y curiosidad. Exótico, raro, bel
 const fionaImage = 'https://dev.adalab.es/sphynx-gato.webp';
 const fionaName = 'Fiona';
 const fionaRace = 'Sphynx';
-const fionaLi = '<li class=card js-fiona-li>';
+const fionaLi = '<li class="card js-fiona-li">';
 
 const fiona = `${fionaLi}
             <img
@@ -100,22 +100,24 @@ buttonSearch.addEventListener('click', (event) => {
   console.log('click');
 
   const anastasioLi = document.querySelector('.js-anastasio-li');
-  const fionaLi = document.querySelector('js-fiona-li');
-  const cieloLi =  document.querySelector('js-cielo-li');
+  const fionaLi = document.querySelector('.js-fiona-li');
+  const cieloLi =  document.querySelector('.js-cielo-li');
 
   const descriptionValue = descripton.value;
  
   if (anastasioDescription.includes(descriptionValue)) {
-    
+    console.log(fionaLi)
     fionaLi.classList.add('collapsed');
     cieloLi.classList.add('collapsed');
 
   }
   if (fionaDescription.includes(descriptionValue)) {
-    console.log('Soy fiona');
+    anastasioLi.classList.add('collapsed');
+    cieloLi.classList.add('collapsed');
   }
   if (cieloDescription.includes(descriptionValue)) {
-    console.log('Soy cielo');
+    anastasioLi.classList.add('collapsed');
+    fionaLi.classList.add('collapsed');
   }
 })
 
