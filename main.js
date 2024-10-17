@@ -7,57 +7,59 @@ const anastasioImage = 'https://dev.adalab.es/gato-siames.webp';
 const anastasioName = 'Anastacio';
 const anastasioRace = 'Siamés';
 
-
-const anastasio = `<li class="card js-anastasio-li">
-            <article>
-              <img
-                class="card_img"
-                src= ${anastasioImage}
-                alt="siames-cat"
-              />
-              <h3 class="card_title">${anastasioName}</h3>
-              <h4 class="card_race">${anastasioRace}</h4>
-              <p class="card_description">
-                ${anastasioDescription}
-              </p>
-            </article>
-          </li>`;
+const anastasio = `
+<li class="card js-anastasio-li">
+  <article>
+    <img
+      class="card_img"
+      src= ${anastasioImage}
+      alt="siames-cat"
+    />
+    <h3 class="card_title">${anastasioName}</h3>
+    <h4 class="card_race">${anastasioRace}</h4>
+    <p class="card_description">
+      ${anastasioDescription}
+    </p>
+  </article>
+</li>`;
 
 const fionaDescription = 'Produce fascinación y curiosidad. Exótico, raro, bello, extraño… Hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo.';
 const fionaImage = 'https://dev.adalab.es/sphynx-gato.webp';
 const fionaName = 'Fiona';
 const fionaRace = 'Sphynx';
 
-const fiona = `<li class=card js-fiona-li>
-            <img
-              class="card_img"
-              src="${fionaImage}"
-              alt="sphynx-cat"
-            />
-            <h3 class="card_title">${fionaName}</h3>
-            <h4 class="card_race">${fionaRace}</h4>
-            <p class="card_description">
-              ${fionaDescription}
-            </p>
-          </li>`;
+const fiona = `
+<li class="card js-fiona-li">
+  <img
+    class="card_img"
+    src="${fionaImage}"
+    alt="sphynx-cat"
+  />
+  <h3 class="card_title">${fionaName}</h3>
+  <h4 class="card_race">${fionaRace}</h4>
+  <p class="card_description">
+    ${fionaDescription}
+  </p>
+</li>`;
 
 const cieloDescription = 'Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.';
 const cieloImage = 'https://dev.adalab.es/maine-coon-cat.webp';
 const cieloName = 'Cielo';
 const cieloRace = 'Maine Coon';
 
-const cielo = `<li class="card js-cielo-li">
-            <img
-              class="card_img"
-              src="${cieloImage}"
-              alt="maine-coon-cat"
-            />
-            <h3 class="card_title">${cieloName}</h3>
-            <h4 class="card_race">${cieloRace}</h4>
-            <p class="card_description">
-              ${cieloDescription}
-            </p>
-          </li>`;
+const cielo = `
+<li class="card js-cielo-li">
+  <img
+    class="card_img"
+    src="${cieloImage}"
+    alt="maine-coon-cat"
+  />
+  <h3 class="card_title">${cieloName}</h3>
+  <h4 class="card_race">${cieloRace}</h4>
+  <p class="card_description">
+    ${cieloDescription}
+  </p>
+</li>`;
 
 ulList.innerHTML = anastasio + fiona + cielo;
 
@@ -96,7 +98,7 @@ buttonSearch.addEventListener('click', (event) => {
   event.preventDefault();
   console.log('click');
   const anastasioLi = document.querySelector('.js-anastasio-li');
-  const fionaLi = document.querySelector('.js-fiona-lii');
+  const fionaLi = document.querySelector('.js-fiona-li');
   const cieloLi =  document.querySelector('.js-cielo-li');
 
   const descriptionValue = descripton.value;
@@ -109,10 +111,12 @@ buttonSearch.addEventListener('click', (event) => {
 
   }
   if (fionaDescription.includes(descriptionValue)) {
-    console.log('Soy fiona');
+    anastasioLi.classList.add('collapsed');
+    cieloLi.classList.add('collapsed');
   }
   if (cieloDescription.includes(descriptionValue)) {
-    console.log('Soy cielo');
+    anastasioLi.classList.add('collapsed');
+    fionaLi.classList.add('collapsed');
   }
 })
 
