@@ -72,16 +72,40 @@ const buttonPlus = document.querySelector ('.js-btn-add');
 const buttonCancel = document.querySelector ('.js-button-cancel');
 const newForm = document.querySelector ('.js-new-form');
 
+// buttonPlus.addEventListener('click', ()=> {
+//   newForm.classList.remove('collapsed');
+// }) 
 
-buttonPlus.addEventListener('click', ()=> {
-  //newForm.classList.toggle('collapsed');
+// buttonCancel.addEventListener('click', ()=> {
+//   newForm.classList.add('collapsed');
+// })
+
+// Ahora hacemos el mismo ejercicio pero utilizando funciones. Y el botón + abre y cierra el formulario.
+
+function showNewCatForm(){
+  console.log ('Ha hecho un click en el botón +');
   newForm.classList.remove('collapsed');
-}) 
+}
 
-buttonCancel.addEventListener('click', ()=> {
-  //newForm.classList.toggle('collapsed');
+function hideNewCatForm() {
+  console.log ('Ha hecho un click en el botón cancelar');
   newForm.classList.add('collapsed');
-})
+}
+
+function handleClickNewCatForm(event) {
+  event.preventDefault();
+  if (newForm.classList.contains('collapsed')) {
+    showNewCatForm();
+  } else {
+    hideNewCatForm()
+  }
+}
+
+buttonPlus.addEventListener('click', handleClickNewCatForm);
+
+buttonCancel.addEventListener('click', hideNewCatForm);
+
+
 
 /* FILTRAS / BUSCAR
 1. Cuando la usuaria hace click en buscar:
