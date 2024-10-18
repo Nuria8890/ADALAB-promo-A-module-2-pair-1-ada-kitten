@@ -63,7 +63,7 @@ const cielo = `
 
 ulList.innerHTML = anastasio + fiona + cielo;
 
-/* AÑADIR +
+/* BUTTON +
     1. Cuando hacemos click en + se tiene que quitar la clase collapsed
     2. Cuando hacemos click en cancelar tiene que aparecer de nuevo la clase collapsed
 */
@@ -92,8 +92,7 @@ function hideNewCatForm() {
   newForm.classList.add('collapsed');
 }
 
-function handleClickNewCatForm(event) {
-  event.preventDefault();
+function handleClickNewCatForm() {
   if (newForm.classList.contains('collapsed')) {
     showNewCatForm();
   } else {
@@ -107,7 +106,7 @@ buttonCancel.addEventListener('click', hideNewCatForm);
 
 
 
-/* FILTRAS / BUSCAR
+/* FILTRAR / BUSCAR
 1. Cuando la usuaria hace click en buscar:
   - Recoger valor del input de la descripción.
     - Comprobar si ese valor está incluido en la descripción de algún gato.
@@ -144,3 +143,18 @@ buttonSearch.addEventListener('click', (event) => {
   }
 })
 
+/* AÑADIR UN NUEVO GATO
+Recoger la información del HTML
+  - Información del formulario
+    - input url
+    - input nombre
+    - input raza
+    - input descripción
+  - Botón añadir
+
+Cuando la usuaria haga click en añadir
+  - pinta el nuevo gato en el html
+    - Necesitamos
+      - recoger el ul.inherHTML ((ul.inerHTML = ul.inerHTML + <li>))
+        - pintar el <li> con la información recogida en los inputs.
+*/
