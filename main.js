@@ -126,21 +126,19 @@ buttonSearch.addEventListener('click', (event) => {
 
   const descriptionValue = descripton.value;
 
-  if (anastasioDescription.includes(descriptionValue)) {
-    console.log('Soy Anastasio');
-    console.log(fionaLi);
-    fionaLi.classList.add('collapsed');
-    cieloLi.classList.add('collapsed');
+  fionaLi.classList.add('collapsed');
+  cieloLi.classList.add('collapsed');
+  anastasioLi.classList.add('collapsed');
 
+  /*if (anastasioDescription.includes(descriptionValue)) {
+    anastasioLi.classList.remove('collapsed');
   }
   if (fionaDescription.includes(descriptionValue)) {
-    anastasioLi.classList.add('collapsed');
-    cieloLi.classList.add('collapsed');
+    fionaLi.classList.remove('collapsed');
   }
   if (cieloDescription.includes(descriptionValue)) {
-    anastasioLi.classList.add('collapsed');
-    fionaLi.classList.add('collapsed');
-  }
+    cieloLi.classList.remove('collapsed');
+  }*/
 })
 
 /* AÑADIR UN NUEVO GATO
