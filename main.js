@@ -117,7 +117,7 @@ buttonCancel.addEventListener('click', hideNewCatForm);
 const buttonSearch = document.querySelector('.js_button-search');
 const descripton = document.querySelector('.js_in_search_desc');
 
-buttonSearch.addEventListener('click', (event) => {
+/*buttonSearch.addEventListener('click', (event) => {
   event.preventDefault();
   console.log('click');
   const anastasioLi = document.querySelector('.js-anastasio-li');
@@ -130,7 +130,7 @@ buttonSearch.addEventListener('click', (event) => {
   cieloLi.classList.add('collapsed');
   anastasioLi.classList.add('collapsed');
 
-  /*if (anastasioDescription.includes(descriptionValue)) {
+  if (anastasioDescription.includes(descriptionValue)) {
     anastasioLi.classList.remove('collapsed');
   }
   if (fionaDescription.includes(descriptionValue)) {
@@ -138,10 +138,34 @@ buttonSearch.addEventListener('click', (event) => {
   }
   if (cieloDescription.includes(descriptionValue)) {
     cieloLi.classList.remove('collapsed');
-  }*/
-})
+  }
+})*/
 
-/* AÑADIR UN NUEVO GATO
+//AHORA, VAMOS A HACERLO CON FUNCIÓN ARROW 
+
+const filterKitten = (event) => {
+  event.preventDefault ();
+  const descriptionValue = descripton.value;
+  ulList.innerHTML = '';
+  console.log ('ulList');
+
+  if (anastasio.includes(descriptionValue)) {
+    ulList.innerHTML += anastasio;
+  }
+  if (fiona.includes (descriptionValue)){
+    ulList.innerHTML += fiona;
+  }
+  if (cielo.includes (descriptionValue)){
+    ulList.innerHTML += cielo;
+  }
+}
+
+buttonSearch.addEventListener('click', filterKitten);
+
+
+
+
+/* AÑADIR UN NUEVO GATO//BONUS
 Recoger la información del HTML
   - Información del formulario
     - input url
