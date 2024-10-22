@@ -23,6 +23,7 @@ const kittenData_3 = {
   race: 'Maine Coon'
 }
 
+// Función que pinta el gato en el HTML: 
 const renderKitten = (kitten) => {
   ulList.innerHTML += `<li class="card">
   <article>
@@ -43,23 +44,6 @@ renderKitten(kittenData_1);
 renderKitten(kittenData_2);
 renderKitten(kittenData_3);
 
-// function renderKitten(kitten) {
-//   ulList.innerHTML = `<li class="card">
-//   <article>
-//     <img
-//       class="card_img"
-//       src= ${kitten.image}
-//       alt="${kitten.race}-cat"
-//     />
-//     <h3 class="card_title">${kitten.name}</h3>
-//     <h4 class="card_race">${kitten.race}</h4>
-//     <p class="card_description">
-//       ${kitten.desc}
-//     </p>
-//   </article>
-// </li>`
-// }
-
 
 /* BUTTON +
     1. Cuando hacemos click en + se tiene que quitar la clase collapsed
@@ -70,16 +54,17 @@ const buttonPlus = document.querySelector ('.js-btn-add');
 const buttonCancel = document.querySelector ('.js-button-cancel');
 const newForm = document.querySelector ('.js-new-form');
 
-// buttonPlus.addEventListener('click', ()=> {
-//   newForm.classList.remove('collapsed');
-// }) 
+/*
+buttonPlus.addEventListener('click', ()=> {
+  newForm.classList.remove('collapsed');
+}) 
 
-// buttonCancel.addEventListener('click', ()=> {
-//   newForm.classList.add('collapsed');
-// })
+buttonCancel.addEventListener('click', ()=> {
+  newForm.classList.add('collapsed');
+})
+*/
 
 // Ahora hacemos el mismo ejercicio pero utilizando funciones. Y el botón + abre y cierra el formulario.
-
 function showNewCatForm(){
   console.log ('Ha hecho un click en el botón +');
   newForm.classList.remove('collapsed');
@@ -102,8 +87,6 @@ buttonPlus.addEventListener('click', handleClickNewCatForm);
 
 buttonCancel.addEventListener('click', hideNewCatForm);
 
-
-
 /* FILTRAR / BUSCAR
 1. Cuando la usuaria hace click en buscar:
   - Eliminar todos los gatos del html
@@ -112,11 +95,11 @@ buttonCancel.addEventListener('click', hideNewCatForm);
       Si sí está incluido, añádelo
 */
 
-
 const buttonSearch = document.querySelector('.js_button-search');
 const descriptonInput = document.querySelector('.js_in_search_desc');
 
-/*buttonSearch.addEventListener('click', (event) => {
+/*
+  buttonSearch.addEventListener('click', (event) => {
   event.preventDefault();
   console.log('click');
   const anastasioLi = document.querySelector('.js-anastasio-li');
@@ -151,10 +134,10 @@ const filterKitten = (event) => {
   if (kittenData_1.desc.includes(description)) {
     renderKitten(kittenData_1);
   }
-  if (kittenData_2.desc.includes (description)){
+  if (kittenData_2.desc.includes(description)){
     renderKitten(kittenData_2);
   }
-  if (kittenData_3.desc.includes (description)){
+  if (kittenData_3.desc.includes(description)){
     renderKitten(kittenData_3);
   }
 }
