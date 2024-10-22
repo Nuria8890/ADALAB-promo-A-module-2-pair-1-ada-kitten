@@ -23,18 +23,18 @@ const kittenData_3 = {
   race: 'Maine Coon'
 }
 
-const renderKitten = (kittenRender) => {
+const renderKitten = (kitten) => {
   ulList.innerHTML += `<li class="card">
   <article>
     <img
       class="card_img"
-      src= ${kittenRender.image}
-      alt="${kittenRender.race}-cat"
+      src= ${kitten.image}
+      alt="${kitten.race}-cat"
     />
-    <h3 class="card_title">${kittenRender.name}</h3>
-    <h4 class="card_race">${kittenRender.race}</h4>
+    <h3 class="card_title">${kitten.name}</h3>
+    <h4 class="card_race">${kitten.race}</h4>
     <p class="card_description">
-      ${kittenRender.desc}
+      ${kitten.desc}
     </p>
   </article>
 </li>`
@@ -114,7 +114,7 @@ buttonCancel.addEventListener('click', hideNewCatForm);
 
 
 const buttonSearch = document.querySelector('.js_button-search');
-const descripton = document.querySelector('.js_in_search_desc');
+const descriptonInput = document.querySelector('.js_in_search_desc');
 
 /*buttonSearch.addEventListener('click', (event) => {
   event.preventDefault();
@@ -144,19 +144,18 @@ const descripton = document.querySelector('.js_in_search_desc');
 
 const filterKitten = (event) => {
   event.preventDefault ();
-  const descriptionValue = descripton.value;
-  
-  ulList.innerHTML = '';
-  console.log ('ulList');
+  const description = descriptonInput.value;
 
-  if (kittenData_1.includes(descriptionValue)) {
-    ulList.innerHTML += kittenData_1;
+  ulList.innerHTML = '';
+
+  if (kittenData_1.desc.includes(description)) {
+    renderKitten(kittenData_1);
   }
-  if (kittenData_2.includes (descriptionValue)){
-    ulList.innerHTML += kittenData_2;
+  if (kittenData_2.desc.includes (description)){
+    renderKitten(kittenData_2);
   }
-  if (kittenData_3.includes (descriptionValue)){
-    ulList.innerHTML += kittenData_3;
+  if (kittenData_3.desc.includes (description)){
+    renderKitten(kittenData_3);
   }
 }
 
