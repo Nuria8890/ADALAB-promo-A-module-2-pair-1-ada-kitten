@@ -2,66 +2,64 @@
 
 const ulList = document.querySelector(".js-list");
 
-const anastasioDescription = 'Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asia al menos hace 500 años, donde tuvo su origen muy posiblemente.';
-const anastasioImage = 'https://dev.adalab.es/gato-siames.webp';
-const anastasioName = 'Anastacio';
-const anastasioRace = 'Siamés';
+const kittenData_1 = {
+  image: 'https://dev.adalab.es/gato-siames.webp',
+  name: 'Anastacio',
+  desc: 'Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asia al menos hace 500 años, donde tuvo su origen muy posiblemente.',
+  race: 'Siamés'
+}
 
-const anastasio = `
-<li class="card js-anastasio-li">
+const kittenData_2 = {
+  image: 'https://dev.adalab.es/sphynx-gato.webp',
+  name: 'Fiona',
+  desc: 'Produce fascinación y curiosidad. Exótico, raro, bello, extraño… Hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo.',
+  race: 'Sphynx'
+}
+
+const kittenData_3 = {
+  image: 'https://dev.adalab.es/maine-coon-cat.webp',
+  name: 'Cielo',
+  desc: 'Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.',
+  race: 'Maine Coon'
+}
+
+const renderKitten = (kittenRender) => {
+  ulList.innerHTML += `<li class="card">
   <article>
     <img
       class="card_img"
-      src= ${anastasioImage}
-      alt="siames-cat"
+      src= ${kittenRender.image}
+      alt="${kittenRender.race}-cat"
     />
-    <h3 class="card_title">${anastasioName}</h3>
-    <h4 class="card_race">${anastasioRace}</h4>
+    <h3 class="card_title">${kittenRender.name}</h3>
+    <h4 class="card_race">${kittenRender.race}</h4>
     <p class="card_description">
-      ${anastasioDescription}
+      ${kittenRender.desc}
     </p>
   </article>
-</li>`;
+</li>`
+}
+renderKitten(kittenData_1);
+renderKitten(kittenData_2);
+renderKitten(kittenData_3);
 
-const fionaDescription = 'Produce fascinación y curiosidad. Exótico, raro, bello, extraño… Hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo.';
-const fionaImage = 'https://dev.adalab.es/sphynx-gato.webp';
-const fionaName = 'Fiona';
-const fionaRace = 'Sphynx';
+// function renderKitten(kitten) {
+//   ulList.innerHTML = `<li class="card">
+//   <article>
+//     <img
+//       class="card_img"
+//       src= ${kitten.image}
+//       alt="${kitten.race}-cat"
+//     />
+//     <h3 class="card_title">${kitten.name}</h3>
+//     <h4 class="card_race">${kitten.race}</h4>
+//     <p class="card_description">
+//       ${kitten.desc}
+//     </p>
+//   </article>
+// </li>`
+// }
 
-const fiona = `
-<li class="card js-fiona-li">
-  <img
-    class="card_img"
-    src="${fionaImage}"
-    alt="sphynx-cat"
-  />
-  <h3 class="card_title">${fionaName}</h3>
-  <h4 class="card_race">${fionaRace}</h4>
-  <p class="card_description">
-    ${fionaDescription}
-  </p>
-</li>`;
-
-const cieloDescription = 'Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.';
-const cieloImage = 'https://dev.adalab.es/maine-coon-cat.webp';
-const cieloName = 'Cielo';
-const cieloRace = 'Maine Coon';
-
-const cielo = `
-<li class="card js-cielo-li">
-  <img
-    class="card_img"
-    src="${cieloImage}"
-    alt="maine-coon-cat"
-  />
-  <h3 class="card_title">${cieloName}</h3>
-  <h4 class="card_race">${cieloRace}</h4>
-  <p class="card_description">
-    ${cieloDescription}
-  </p>
-</li>`;
-
-ulList.innerHTML = anastasio + fiona + cielo;
 
 /* BUTTON +
     1. Cuando hacemos click en + se tiene que quitar la clase collapsed
@@ -108,9 +106,10 @@ buttonCancel.addEventListener('click', hideNewCatForm);
 
 /* FILTRAR / BUSCAR
 1. Cuando la usuaria hace click en buscar:
+  - Eliminar todos los gatos del html
   - Recoger valor del input de la descripción.
     - Comprobar si ese valor está incluido en la descripción de algún gato.
-      Si sí está incluido, elimina los que no
+      Si sí está incluido, añádelo
 */
 
 
@@ -146,17 +145,18 @@ const descripton = document.querySelector('.js_in_search_desc');
 const filterKitten = (event) => {
   event.preventDefault ();
   const descriptionValue = descripton.value;
+  
   ulList.innerHTML = '';
   console.log ('ulList');
 
-  if (anastasio.includes(descriptionValue)) {
-    ulList.innerHTML += anastasio;
+  if (kittenData_1.includes(descriptionValue)) {
+    ulList.innerHTML += kittenData_1;
   }
-  if (fiona.includes (descriptionValue)){
-    ulList.innerHTML += fiona;
+  if (kittenData_2.includes (descriptionValue)){
+    ulList.innerHTML += kittenData_2;
   }
-  if (cielo.includes (descriptionValue)){
-    ulList.innerHTML += cielo;
+  if (kittenData_3.includes (descriptionValue)){
+    ulList.innerHTML += kittenData_3;
   }
 }
 
