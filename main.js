@@ -22,10 +22,12 @@ const kittenData_3 = {
   desc: 'Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.',
   race: 'Maine Coon'
 }
+const kittenDataList = [kittenData_1, kittenData_2, kittenData_3];
 
-// Función que pinta el gato en el HTML: 
+// Función que pinta el gato en el HTML con arrays: 
+
 const renderKitten = (kitten) => {
-  ulList.innerHTML += `<li class="card">
+  const kittenPaint = `<li class="card">
   <article>
     <img
       class="card_img"
@@ -39,11 +41,10 @@ const renderKitten = (kitten) => {
     </p>
   </article>
 </li>`
+return kittenPaint;
 }
-renderKitten(kittenData_1);
-renderKitten(kittenData_2);
-renderKitten(kittenData_3);
 
+ulList.innerHTML = renderKitten(kittenDataList[0]) + renderKitten(kittenDataList[1]) + renderKitten(kittenDataList[2]);
 
 /* BUTTON +
     1. Cuando hacemos click en + se tiene que quitar la clase collapsed
@@ -132,13 +133,13 @@ const filterKitten = (event) => {
   ulList.innerHTML = '';
 
   if (kittenData_1.desc.includes(description)) {
-    renderKitten(kittenData_1);
+    renderKitten(kittenDataList[0]);
   }
   if (kittenData_2.desc.includes(description)){
-    renderKitten(kittenData_2);
+    renderKitten(kittenDataList[1]);
   }
   if (kittenData_3.desc.includes(description)){
-    renderKitten(kittenData_3);
+    renderKitten(kittenDataList[2]);
   }
 }
 
