@@ -44,7 +44,9 @@ const renderKitten = (kitten) => {
 return kittenPaint;
 }
 
-ulList.innerHTML = renderKitten(kittenDataList[0]) + renderKitten(kittenDataList[1]) + renderKitten(kittenDataList[2]);
+for (const kitten of kittenDataList) {
+  ulList.innerHTML += renderKitten(kitten);  
+}
 
 /* BUTTON +
     1. Cuando hacemos click en + se tiene que quitar la clase collapsed
@@ -126,26 +128,33 @@ const descriptonInput = document.querySelector('.js_in_search_desc');
 
 //AHORA, VAMOS A HACERLO CON FUNCIÓN ARROW 
 
+
+
 const filterKitten = (event) => {
   event.preventDefault ();
   const description = descriptonInput.value;
 
   ulList.innerHTML = '';
 
-  if (kittenData_1.desc.includes(description)) {
-    renderKitten(kittenDataList[0]);
+  for (const kitten of kittenDataList) {
+    console.log('en el for of kitten es:', kitten)
+    if (kitten.desc.includes(description)) {
+      ulList.innerHTML += renderKitten(kitten);
+    }
   }
-  if (kittenData_2.desc.includes(description)){
-    renderKitten(kittenDataList[1]);
-  }
-  if (kittenData_3.desc.includes(description)){
-    renderKitten(kittenDataList[2]);
-  }
+
+  // if (kittenDataList[0].desc.includes(description)) {
+  //   ulList.innerHTML += renderKitten(kittenDataList[0]);
+  // }
+  // if (kittenDataList[1].desc.includes(description)){
+  //   ulList.innerHTML += renderKitten(kittenDataList[1]);
+  // }
+  // if (kittenDataList[2].desc.includes(description)){
+  //   ulList.innerHTML += renderKitten(kittenDataList[2]);
+  // }
 }
 
 buttonSearch.addEventListener('click', filterKitten);
-
-
 
 
 /* AÑADIR UN NUEVO GATO//BONUS
